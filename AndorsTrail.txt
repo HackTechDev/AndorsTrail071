@@ -1,0 +1,187 @@
+[Android] Compilation de "Andor’s Trail : Roguelike RPG" sous Eclipse.
+
+Téléphone : Archos 55 Platinum
+Android : Lollipop 5.1
+
+
+1/ Installation de Java 8
+
+- Ajout du dépôt :
+
+util05@station01:~$ sudo add-apt-repository ppa:webupd8team/java
+
+
+- Mise à jour des dépôts :
+
+util05@station01:~$ sudo apt update
+
+
+- Installation du paquet Java 8 :
+
+util05@station01:~$ sudo apt install oracle-java8-set-default
+
+
+- Vérification de la version : 
+
+util05@station01:~$ java -version
+java version "1.8.0_191"
+Java(TM) SE Runtime Environment (build 1.8.0_191-b12)
+Java HotSpot(TM) 64-Bit Server VM (build 25.191-b12, mixed mode)
+util05@station01:~$ 
+
+
+2/ Création du répertoire du jeu.
+
+
+util05@station01:~$ mkdir -p ANDROID/JEU/ANDOR
+util05@station01:~$ cd ANDROID/JEU/ANDOR/
+util05@station01:~/ANDROID/JEU/ANDOR$ 
+
+
+3/ Téléchargement de l'archive du code source de 'Andor's Trail'.
+
+util05@station01:~/ANDROID/JEU/ANDOR$ wget https://github.com/Zukero/andors-trail/archive/v0.7.1.tar.gz
+
+4/ Décompression de l'archive.
+
+util05@station01:~/ANDROID/JEU/ANDOR$ tar xvfz v0.7.1.tar.gz 
+
+
+5/ Installation des paquets de développement.
+
+sudo apt-get install  lib32ncurses5 lib32z1
+sudo apt-get install gcc-multilib
+
+
+6/ Création du répertoire des SDK de Android.
+
+util05@station01:~$ mkdir android-sdks
+util05@station01:~$ cd android-sdks/
+util05@station01:~/android-sdks$ 
+
+
+7/ Téléchargement du Androis SDK.
+
+- Trouver la numéro de release :
+
+https://developer.android.com/studio/releases/sdk-tools
+
+
+- Téléchargement : 
+
+util05@station01:~/android-sdks$ wget http://dl-ssl.google.com/android/repository/tools_r23.0.5-linux.zip
+
+- Décompression :
+
+util05@station01:~/android-sdks$ unzip tools_r23.0.5-linux.zip 
+
+
+8/ Création du répertoire de Eclipse.
+
+util05@station01:~$ mkdir -p ANDROID/ECLIPSE
+util05@station01:~$ cd ANDROID/ECLIPSE/
+util05@station01:~/ANDROID/ECLIPSE$ 
+
+
+9/ Téléchargement de Eclipse.
+
+util05@station01:~/ANDROID/ECLIPSE$ wget http://mirror.switch.ch/eclipse/technology/epp/downloads/release/2018-09/R/eclipse-dsl-2018-09-linux-gtk-x86_64.tar.gz
+
+
+10/ Décompression.
+
+util05@station01:~/ANDROID/ECLIPSE$ tar xvfz eclipse-dsl-2018-09-linux-gtk-x86_64.tar.gz 
+
+
+11/ Lancement de Eclipse
+ 
+util05@station01:~/ANDROID/ECLIPSE$ cd eclipse/
+util05@station01:~/ANDROID/ECLIPSE/eclipse$ ./eclipse 
+
+
+12/ Installation de "Android Development Tool".
+
+- [Help][Install New Software]
+
+- [Add...]
+
+- Name : ADT Plugin
+Location : https://dl-ssl.google.com/android/eclipse/
+
+[Add]
+
+
+- Developer Tools : v
+
+[Next >]
+
+[Next >]
+
+- I accept the terms of the license agreements : 0
+
+[Finish]
+
+- [Restart Now]
+
+
+12/ Installation de "Android SDK Tools".
+
+[Window] [Android SDK Manager]
+
+v Android SDK Tools
+v Android SDK Platform-tools
+v Android SDK Build-tools
+  Android 6.0 (API 23)
+  v SDL Platform
+
+[Install 3 packages...]
+
+0 Accept License
+
+[Install]
+
+
+13/ Redémarrer Eclipse.
+
+
+14/ Charger le projet "AndorsTrails".
+
+Project>Properties>Resource>Android>Project Build Traget> version 
+
+v Google APIs
+
+[Apply]
+
+[Apply and Close]
+
+
+15/ Compilation du projet.
+
+[Projet][Clean...]
+
+[File][Restart]
+v AndrorsTrail
+
+v Start a buld immediately
+  0 Build only the selected projects
+
+[Clean]
+ 
+16/ Création du paquet '.apk'.
+
+(icône) [Run] [AndorsTrail]
+
+
+17/ Vérification.
+
+util05@station01:~/ANDROID/JEU/ANDOR$ cd andors-trail-0.7.1/AndorsTrail/bin/
+util05@station01:~/ANDROID/JEU/ANDOR/andors-trail-0.7.1/AndorsTrail/bin$ 
+util05@station01:~/ANDROID/JEU/ANDOR/andors-trail-0.7.1/AndorsTrail/bin$ ls -lh *.apk
+-rw-rw-r-- 1 util05 util05 17M oct.  25 18:37 AndorsTrail.apk
+
+
+18/ Liens.
+
+https://linuxconfig.org/how-to-install-java-on-ubuntu-18-04-bionic-beaver-linux
+http://www.androiddocs.com/sdk/installing/installing-adt.html
+http://www.androiddocs.com/sdk/installing/adding-packages.html
